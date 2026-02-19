@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Laptop",
+    "price": 1200,
+    "image": "/static/images/laptop.png"
+  },
+  {
+    "id": 2,
+    "name": "Mobile",
+    "price": 800,
+    "image": "/static/images/mobile.png"
+  },
+  {
+    "id": 3,
+    "name": "Headphones",
+    "price": 150,
+    "image": "/static/images/headphones.png"
+  }
+]

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CloudShop</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="logo">
+        <span class="cloud">☁</span> CloudShop
+    </div>
+
+    <nav class="nav-buttons">
+        <button onclick="showProducts()">Products</button>
+        <button onclick="showOrders()">Orders</button>
+        <button onclick="showProfile()">Profile</button>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>CloudShop Application</h1>
+    <p>Environment: <b>{{ environment }}</b></p>
+</section>
+
+<section class="products">
+    <div id="product-container" class="product-grid"></div>
+</section>
+
+<!-- PROFILE -->
+<div id="profileModal" class="modal hidden">
+    <div class="modal-content">
+        <h2>Profile</h2>
+        <p>Name: Abhilash Narayan</p>
+        <p>Contact: 8748865517</p>
+        <button onclick="closeModal()">Close</button>
+    </div>
+</div>
+
+<!-- ORDERS -->
+<div id="ordersModal" class="modal hidden">
+    <div class="modal-content">
+        <h2>Your Orders</h2>
+        <ul>
+            <li>Laptop - Delivered</li>
+            <li>Mobile - In Transit</li>
+        </ul>
+        <button onclick="closeModal()">Close</button>
+    </div>
+</div>
+
+<footer class="footer">
+    © 2026 CloudShop DevOps Platform
+</footer>
+
+<script>
+
+async function showProducts() {
+    const res = await fetch('/products');
+    const products = await res.json();
+
+    let html = "";
+
+    products.forEach(p => {
+        html += `
+        <div class="card">
+            <img src="${p.image}" class="product-img"/>
+            <h3>${p.name}</h3>
+            <p>$${p.price}</p>
+            <button onclick="goCart()">Buy Now</button>
+        </div>`;
+    });
+
+    document.getElementById("product-container").innerHTML = html;
+}
+
+function showProfile(){
+    document.getElementById("profileModal").classList.remove("hidden");
+}
+
+function showOrders(){
+    document.getElementById("ordersModal").classList.remove("hidden");
+}
+
+function closeModal(){
+    document.querySelectorAll(".modal").forEach(m => m.classList.add("hidden"));
+}
+
+function goCart(){
+    window.location.href="/cart";
+}
+
+</script>
+
+</body>
+</html>
