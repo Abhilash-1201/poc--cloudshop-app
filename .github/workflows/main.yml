@@ -150,4 +150,3 @@ jobs:
           git commit -am "Update image tag ${{ github.sha }}"
           git push
 
-          
