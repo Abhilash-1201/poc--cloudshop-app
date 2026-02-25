@@ -138,6 +138,7 @@ jobs:
         with:
           repository: Abhilash-1201/poc-cloudshop-gitops-argocd
           token: ${{ secrets.GH_PAT }}
+          path: gitops
 
       - name: Update Image Tag
         run: |
