@@ -142,8 +142,8 @@ jobs:
 
       - name: Update Image Tag
         run: |
-          sed -i 's/newTag:.*/newTag: "${{ github.sha }}"/' apps/cloudshop/overlays/dev/kustomization.yaml
-
+          sed -i 's/newTag:.*/newTag: "${{ github.sha }}"/' \
+          gitops/apps/cloudshop/overlays/dev/kustomization.yaml
       - name: Commit and Push Changes
         run: |
           git config user.name "github-actions"
