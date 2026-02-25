@@ -136,7 +136,7 @@ jobs:
       - name: Checkout GitOps Repository
         uses: actions/checkout@v4
         with:
-          repository: Abhilash-1201/poc-cloudshop-gitops
+          repository: Abhilash-1201/poc-cloudshop-gitops-argocd
           token: ${{ secrets.GH_PAT }}
 
       - name: Update Image Tag
